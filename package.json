@@ -1,0 +1,35 @@
+{
+  "name": "16-control-de-medicamentos-api",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "secrets": "node scripts/check-secrets.mjs",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm test && npm run secrets"
+  },
+  "dependencies": {
+    "@vercel/blob": "^2.0.0",
+    "firebase-admin": "^13.4.0",
+    "next": "^15.5.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "zod": "^3.25.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.1.0",
+    "eslint": "^9.25.0",
+    "eslint-config-next": "^15.5.0",
+    "prettier": "^3.3.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  }
+}
