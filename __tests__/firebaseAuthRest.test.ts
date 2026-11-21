@@ -41,7 +41,7 @@ describe('diagnóstico seguro de Firebase Auth', () => {
         .fn()
         .mockResolvedValue(
           Response.json(
-            { error: { message: 'unexpected response containing private data' } },
+            { error: { message: 'API key not valid. Please pass a valid API key.' } },
             { status: 500 },
           ),
         ),
@@ -54,6 +54,6 @@ describe('diagnóstico seguro de Firebase Auth', () => {
     });
 
     expect(log).toHaveBeenCalledWith('Error de Firebase Auth:', 'registro', 'UNKNOWN');
-    expect(JSON.stringify(log.mock.calls)).not.toContain('private data');
+    expect(JSON.stringify(log.mock.calls)).not.toContain('not valid');
   });
 });

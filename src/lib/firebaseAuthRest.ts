@@ -18,8 +18,8 @@ const SESION = [
 ];
 
 function codigoErrorFirebase(mensaje: string): string {
-  const codigo = mensaje.trim().split(/[\s:]/)[0] ?? '';
-  return /^[A-Z][A-Z0-9_]{0,79}$/.test(codigo) ? codigo : 'UNKNOWN';
+  const codigo = /^([A-Z][A-Z0-9_]{0,79})(?=\s*:|\s*$)/.exec(mensaje.trim())?.[1];
+  return codigo ?? 'UNKNOWN';
 }
 
 /** Traduce el código de error de Firebase a un ApiError. Credenciales: mismo mensaje exista o no el correo. */
