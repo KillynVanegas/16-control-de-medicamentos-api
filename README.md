@@ -29,8 +29,10 @@ Las variables reales viven **solo en Vercel**. `.env.example` tiene valores fict
 
 ## Estado
 
-- Código y pruebas escritos; **sin ejecutar** (no se instalaron dependencias ni se desplegó).
-- Pendiente: pruebas P01–P09 de `ia/`, desplegar, probar `GET /api/health` desde el teléfono, reglas de Firestore publicadas.
+- Código construido y validado localmente.
+- Dependencias instaladas y compilación de producción comprobada.
+- Pendiente: autenticación/despliegue en Vercel, carga de variables de entorno y publicación de las reglas de Firestore.
+- Las pruebas P01–P09 están documentadas en `ia/pruebas/`.
 
 ## Puntos a verificar
 

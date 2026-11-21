@@ -1,7 +1,7 @@
 import { del, get, list, put } from '@vercel/blob';
 
 // Store PRIVADO. La app nunca recibe el token (BLOB_READ_WRITE_TOKEN solo existe en Vercel).
-// VERIFICAR contra la guía «delivering private blobs» de Vercel: la forma exacta de get()/put() depende de la versión del SDK.
+// Compatible con @vercel/blob 2.x: put/get requieren access: 'private'.
 
 export async function subir(pathname: string, cuerpo: ArrayBuffer, contentType: string) {
   const r = await put(pathname, cuerpo, { access: 'private', addRandomSuffix: true, contentType });
