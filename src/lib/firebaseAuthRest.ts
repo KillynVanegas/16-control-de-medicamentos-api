@@ -18,7 +18,9 @@ const SESION = [
 ];
 
 function codigoErrorFirebase(mensaje: string): string {
-  const codigo = /^([A-Z][A-Z0-9_]{0,79})(?=\s*:|\s*$)/.exec(mensaje.trim())?.[1];
+  const texto = mensaje.trim();
+  if (/^API key not valid(?:\.|$)/i.test(texto)) return 'API_KEY_INVALID';
+  const codigo = /^([A-Z][A-Z0-9_]{0,79})(?=\s*:|\s*$)/.exec(texto)?.[1];
   return codigo ?? 'UNKNOWN';
 }
 

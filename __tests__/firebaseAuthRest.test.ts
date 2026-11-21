@@ -34,7 +34,7 @@ describe('diagnóstico seguro de Firebase Auth', () => {
     expect(JSON.stringify(log.mock.calls)).not.toContain('private-password');
   });
 
-  it('sustituye mensajes externos que no son códigos por UNKNOWN', async () => {
+  it('normaliza el mensaje de API key inválida sin registrar el texto', async () => {
     vi.stubGlobal(
       'fetch',
       vi
@@ -53,7 +53,7 @@ describe('diagnóstico seguro de Firebase Auth', () => {
       message: 'Error interno',
     });
 
-    expect(log).toHaveBeenCalledWith('Error de Firebase Auth:', 'registro', 'UNKNOWN');
+    expect(log).toHaveBeenCalledWith('Error de Firebase Auth:', 'registro', 'API_KEY_INVALID');
     expect(JSON.stringify(log.mock.calls)).not.toContain('not valid');
   });
 });
